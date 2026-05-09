@@ -85,11 +85,7 @@ fetch() {
 
 if [[ ! -f "$PREFIX/lib/libz.a" ]]; then
     echo "==> Building zlib"
-    fetch zlib "https://zlib.net/current/zlib.tar.gz" zlib-1.3.1.tar.gz
-    if ! tar tzf zlib-1.3.1.tar.gz >/dev/null 2>&1; then
-        rm -f zlib-1.3.1.tar.gz
-        fetch zlib "https://zlib.net/fossils/zlib-1.3.1.tar.gz" zlib-1.3.1.tar.gz
-    fi
+    fetch zlib "https://zlib.net/fossils/zlib-1.3.1.tar.gz" zlib-1.3.1.tar.gz
     zlib_dir="$(tar_topdir zlib-1.3.1.tar.gz)"
     rm -rf "$zlib_dir"
     tar_extract zlib-1.3.1.tar.gz
